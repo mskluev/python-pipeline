@@ -1,0 +1,14 @@
+[project]
+name = "data_processor"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "infer_core"
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv.sources]
+infer_core = { workspace = true }

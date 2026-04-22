@@ -1,0 +1,19 @@
+[project]
+name = "metadata_fetcher"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "infer_core",
+    "aws-lambda-powertools[all]",
+    "awswrangler",
+    "pydantic>=2.0.0",
+    "requests",
+    "boto3"
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv.sources]
+infer_core = { workspace = true }

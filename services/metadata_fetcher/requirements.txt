@@ -1,0 +1,6 @@
+-e ../../libraries/infer_core
+aws-lambda-powertools[all]
+awswrangler
+pydantic>=2.0.0
+requests
+boto3

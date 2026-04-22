@@ -1,0 +1,13 @@
+# General
+.DS_Store
+.idea/
+.vscode/
+.venv/
+
+# Terraform
+infrastructure/**/.terraform/
+infrastructure/**/.terraform.lock.hcl
+infrastructure/**/*.tfstate
+infrastructure/**/*.tfstate.backup
+infrastructure/**/crash.log
+infrastructure/**/*.tfvars
