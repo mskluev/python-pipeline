@@ -1,7 +1,7 @@
 ENV ?= dev
 SERVICES ?= data_processor metadata_fetcher
 COMMIT_SHA ?= $(shell git rev-parse HEAD 2>/dev/null || echo "latest")
-ARTIFACT_BUCKET ?= your-artifact-bucket-name
+ARTIFACT_BUCKET ?= mskluev-test
 TF_DIR := infrastructure/environments/$(ENV)
 
 .PHONY: all
@@ -27,7 +27,7 @@ push-lambdas:
 			exit 1; \
 		fi; \
 		echo "Pushing $$service..."; \
-		aws s3 cp services/$$service/$$service-$(COMMIT_SHA).zip s3://$(ARTIFACT_BUCKET)/$$service/$$service-$(COMMIT_SHA).zip; \
+		aws s3 cp services/$$service/$$service-$(COMMIT_SHA).zip s3://$(ARTIFACT_BUCKET)/test-pipeline/$$service/$$service-$(COMMIT_SHA).zip; \
 	done
 
 .PHONY: tf-init

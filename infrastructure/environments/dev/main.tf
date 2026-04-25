@@ -11,6 +11,8 @@ provider "aws" {
   region = var.aws_region
 }
 
+data "aws_caller_identity" "current" {}
+
 variable "aws_region" {
   type    = string
   default = "us-east-1"
@@ -20,6 +22,10 @@ variable "commit_sha" {
   type        = string
   description = "Git commit SHA for lambda deployment"
   default     = "latest"
+}
+
+resource "aws_s3_bucket" "working_bucket" {
+  bucket = "mskluev-test-${data.aws_caller_identity.current.account_id}"
 }
 
 # Add module calls here
@@ -63,4 +69,5 @@ module "sagemaker_skill" {
   model_s3_path        = var.model_s3_path
   sagemaker_iam_role   = var.sagemaker_iam_role
   triton_image_uri     = var.triton_image_uri
+  working_bucket       = aws_s3_bucket.working_bucket.bucket
 }

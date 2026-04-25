@@ -13,6 +13,11 @@ variable "security_group_ids" {
   type        = list(string)
 }
 
+variable "working_bucket" {
+  description = "bucket for storage"
+  type        = string
+}
+
 # SageMaker
 variable "model_s3_path" {
   description = "S3 path to the model.tar.gz file (e.g., s3://my-models-bucket/demo/identity/identity.tar.gz)"

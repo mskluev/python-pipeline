@@ -39,7 +39,7 @@ resource "aws_sagemaker_endpoint_configuration" "triton_ep_config" {
 
   async_inference_config {
     output_config {
-      s3_output_path = "s3://${aws_s3_bucket.output.bucket}/sagemaker-async-output/"
+      s3_output_path = "s3://${var.working_bucket}/sagemaker-async-output/"
     }
     client_config {
       max_concurrent_invocations_per_instance = 4
