@@ -9,3 +9,10 @@ members = [
     "libraries/*",
     "services/*"
 ]
+
+[dependency-groups]
+dev = [
+    "boto3>=1.42.93",
+    "numpy>=2.4.4",
+    "tritonclient[http]>=2.67.0",
+]
